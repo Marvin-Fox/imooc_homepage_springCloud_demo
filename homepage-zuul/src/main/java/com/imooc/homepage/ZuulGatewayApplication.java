@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 /**
  * <h1>网关应用程序</h1>
  * EnableZuulProxy:标识当前应用是Zuul Server
- * SpringCloudApplication: 用于简化配置的组合注解
+ * SpringCloudApplication: 用于简化配置的组合注解(里面已经包含了@SpringBootApplication、@EnableDiscoveryClient)
  */
 @EnableZuulProxy
 @SpringCloudApplication
