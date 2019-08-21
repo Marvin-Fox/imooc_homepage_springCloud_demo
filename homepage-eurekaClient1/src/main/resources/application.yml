@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: homepage-eureka-client
+
+server:
+  port: 8101
+
+eureka:
+  client:
+    service-url:
+      #将自己注册进下面这个地址的服务注册中心
+      defaultZone: http://localhost:8000/eureka/
+
