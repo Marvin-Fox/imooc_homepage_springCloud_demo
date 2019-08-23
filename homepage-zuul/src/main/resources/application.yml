@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: 8300
 
 spring:
   application:
@@ -9,3 +9,29 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8000/eureka/
+
+#这是服务网关路由：外部只用访问localhost:8300，再由8300的zuul配置来决定你所需要调用的服务
+zuul:
+  routes:
+    #服务提供者路由信息（名字是可以自定义的，没有什么特定规则，你能区分就好）
+    use-server-client:
+      #配置对外的路径匹配
+      path: /client/**
+      #配置调用的服务名（官方推荐使用）
+      serviceId: homepage-eureka-client
+
+    #不推荐使用URL这种方式，看这样直接指定就无法使用负载均衡
+    use-server-client-temp:
+      path: /clientTemp/**
+      #配置调用的服务地址（不推荐使用）
+      url: http://localhost:8101/
+
+
+
+    #服务消费者路由信息
+    use-feign:
+      path: /feign/**
+      serviceId: homepage-feign
+
+    #这是另一种简化写法，直接使用（serviceId：path）
+    homepage-feign: /feignTemp/**
