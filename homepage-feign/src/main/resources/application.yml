@@ -15,3 +15,9 @@ feign:
   #默认是不支持的
   hystrix:
     enabled: true
+  #修改调用超时时间（默认是1秒就算超时）
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 2000

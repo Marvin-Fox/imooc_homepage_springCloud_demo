@@ -38,6 +38,7 @@ public class PreRequestFilter extends ZuulFilter {
      */
     @Override
     public Object run() throws ZuulException {
+        System.out.println("222222222222filter-pre");
         //用于在过滤器之间传递消息
         RequestContext ctx=RequestContext.getCurrentContext();
         ctx.set("startTime",System.currentTimeMillis());

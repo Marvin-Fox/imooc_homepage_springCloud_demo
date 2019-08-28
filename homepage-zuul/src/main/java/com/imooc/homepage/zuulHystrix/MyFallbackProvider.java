@@ -32,6 +32,7 @@ public class MyFallbackProvider implements FallbackProvider {
     @Override
     public String getRoute() {
 //        return "homepage-eureka-client";
+        System.out.println("1111111111111111111111111111111111111111111getRoute()");
         return "*";
 
     }
@@ -51,6 +52,7 @@ public class MyFallbackProvider implements FallbackProvider {
             public HttpStatus getStatusCode() throws IOException {
                 //return status;
 //                return HttpStatus.BAD_REQUEST;
+                System.out.println("1111111111111111111111111111111111111111111getStatusCode()");
 
                 return HttpStatus.OK;
             }
@@ -60,6 +62,7 @@ public class MyFallbackProvider implements FallbackProvider {
                 //return status.value();
 
 //                return HttpStatus.BAD_REQUEST.value();
+                System.out.println("1111111111111111111111111111111111111111111getRawStatusCode()");
                 return HttpStatus.OK.value();
             }
 
@@ -69,6 +72,7 @@ public class MyFallbackProvider implements FallbackProvider {
                 //return HttpStatus.BAD_REQUEST.name();
 
 //                return HttpStatus.BAD_REQUEST.getReasonPhrase();
+                System.out.println("1111111111111111111111111111111111111111111getStatusText()");
                 return HttpStatus.OK.getReasonPhrase();
 
             }
@@ -85,24 +89,25 @@ public class MyFallbackProvider implements FallbackProvider {
              */
             @Override
             public InputStream getBody() throws IOException {
-//                JSONObject r = new JSONObject();
-//                try {
-//                    r.put("state", "9999");
-//                    r.put("msg", "系统错误，请求失败");
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-                HashMap map=new HashMap();
-                map.put("state", "9999");
-                map.put("msg", "系统错误，请求失败");
-                System.out.println("1111111111111111111111111111111111111111111");
-                return new ByteArrayInputStream(JSON.toJSONString(map).getBytes("UTF-8"));
+                System.out.println("1111111111111111111111111111111111111111111getBody()");
+//
+//                HashMap map=new HashMap();
+//                map.put("state", "9999");
+//                map.put("msg", "系统错误，请求失败");
+//
+//                return new ByteArrayInputStream(JSON.toJSONString(map).getBytes("UTF-8"));
 
 //                return new ByteArrayInputStream(("fallback:"+MyFallbackProvider.this.getRoute()).getBytes());
+                return new ByteArrayInputStream("Service-user不可用".getBytes());
             }
 
+            /**
+             * 设置编码为utf-8
+             * @return
+             */
             @Override
             public HttpHeaders getHeaders() {
+                System.out.println("1111111111111111111111111111111111111111111getHeaders()");
                 HttpHeaders headers = new HttpHeaders();
                 //和body中的内容编码一致，否则容易乱码
                 headers.setContentType(MediaType.APPLICATION_JSON_UTF8);

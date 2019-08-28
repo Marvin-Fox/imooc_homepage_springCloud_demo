@@ -32,6 +32,7 @@ public class AccessLogFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
+        System.out.println("222222222222filter-post");
         RequestContext ctx=RequestContext.getCurrentContext();
         Long startTime=(Long)ctx.get("startTime");
         HttpServletRequest request=ctx.getRequest();

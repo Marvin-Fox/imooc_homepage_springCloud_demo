@@ -12,6 +12,9 @@ eureka:
 
 #这是服务网关路由：外部只用访问localhost:8300，再由8300的zuul配置来决定你所需要调用的服务
 zuul:
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
   routes:
     #服务提供者路由信息（名字是可以自定义的，没有什么特定规则，你能区分就好）
     use-server-client:
