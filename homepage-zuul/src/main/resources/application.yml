@@ -8,7 +8,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka/
+      defaultZone: http://admin:admin@localhost:8000/eureka/
 
 #这是服务网关路由：外部只用访问localhost:8300，再由8300的zuul配置来决定你所需要调用的服务
 zuul:

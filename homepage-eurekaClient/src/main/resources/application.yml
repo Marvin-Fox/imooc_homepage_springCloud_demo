@@ -9,7 +9,7 @@ eureka:
   client:
     service-url:
       #将自己注册进下面这个地址的服务注册中心
-      defaultZone: http://localhost:8000/eureka/
+      defaultZone: http://admin:admin@localhost:8000/eureka/
 
 #---
 #spring:
